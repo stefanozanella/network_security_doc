@@ -1,5 +1,7 @@
+.bundle
 *.swp
 *.swo
 tmp
 html
 pdf
+vendor
