@@ -5,7 +5,7 @@ pdf_out = "pdf"
 html_temp = "#{temp_dir}/html"
 html_out = "html"
 
-desc "LaTeX -> HTML"
+desc "LaTeX -> HTML + PDF"
 task :build => [:pdf, :html]
 
 desc "Generate PDF"
@@ -21,7 +21,7 @@ desc "Generate HTML5"
 task :html do
   safe_mkdir html_out, html_temp
 
-  sh %Q{htlatex #{root_file} "html5,2,charset=utf-8,-css" "" "" "-output-directory=#{html_temp}"}
+  sh %Q{htlatex #{root_file} "html5,charset=utf-8,-css" "" "" "-output-directory=#{html_temp}"}
 
   # This is done mimicking what `htlatex` does, only handling the fact that
   # tex and auxiliary files live in different places (which is not supported
