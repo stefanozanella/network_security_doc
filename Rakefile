@@ -8,6 +8,8 @@ HTML_OUT = "html"
 GH_PAGES_BRANCH = "gh-pages"
 PUBLISH_DIR = "gh-pages"
 
+ENV['TEXINPUTS'] = ".:packages:#{ENV['TEXINPUTS']}"
+
 desc "LaTeX -> HTML + PDF"
 task :build => [:pdf, :html]
 
