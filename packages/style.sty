@@ -2,9 +2,16 @@
 
 \usepackage{ifpdf}
 \usepackage[a4paper,margin=1in]{geometry}
-%\def\pgfsysdriver{pgfsys-tex4ht.def}
-%\usepackage{tikz} %<-- Gives problems during htlatex compilation
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{IEEEtrantools}
 %\usepackage[IEEE]{mymaths}
+
+% NOTE: The following line is a workaround to make inclusion of tikz work when
+% compiling with tex4ht. For some reason, at the time the package is included,
+% \Hnewline isn't defined and the compilation results in errors.
+% It seems that adding this quick fix doesn't modify output HTML, in the sense
+% that it still contains newlines in the expected places.
+\def\Hnewline{}
+
+\usepackage{tikz}
